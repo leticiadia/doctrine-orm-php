@@ -36,7 +36,7 @@ class Phone
         return $this;
     }
 
-    public function getNumber(): int
+    public function getNumber(): string
     {
         return $this->number;
     }
@@ -47,7 +47,7 @@ class Phone
         return $this;
     }
 
-    public function getStudent(Student $student): Student
+    public function getStudent(): Student
     {
         return $this->student;
     }
