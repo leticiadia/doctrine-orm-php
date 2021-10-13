@@ -2,6 +2,9 @@
 
 namespace Project\Doctrine\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
+
 /**
  * @Entity
 */
@@ -19,6 +22,15 @@ class Student
     */
     private string $name;
 
+    /**
+     * @OneToMany(targetEntity="Phone", mappedBy="Student")
+     */
+    private $phones;
+
+    public function __construct()
+    {
+        $this->phones = new ArrayCollection();
+    }
 
     public function getId(): int
     {
@@ -37,5 +49,17 @@ class Student
 
         $student = new Student();
         $student->setName('teste')->getName();
+    }
+
+    public function getPhones(): Collection
+    {
+        return $this->phones;
+    }
+
+    public function addPhone(Phone $phones)
+    {
+        $this->phones->add($phones);
+        $phones->setStudent($this);
+        return $this;
     }
 }
