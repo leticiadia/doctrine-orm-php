@@ -1,5 +1,6 @@
 <?php
 
+use Project\Doctrine\Entity\Phone;
 use Project\Doctrine\Entity\Student;
 use Project\Doctrine\Helper\EntityManagerFactory;
 
@@ -11,6 +12,13 @@ $student->setName($argv[1]);
 $entityManagerFactory = new EntityManagerFactory();
 $entityManager = $entityManagerFactory->getEntityManager();
 
-$entityManager->persist($student);
+for($i = 2; $i < $argc; $i++) {
+    $phoneNumber = $argv[$i];
+    $phone = new Phone();
+    $phone->setNumber($phoneNumber);
 
+    $student->addPhone($phone);
+}
+
+$entityManager->persist($student);
 $entityManager->flush();
