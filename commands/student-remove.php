@@ -3,14 +3,13 @@
 use Project\Doctrine\Entity\Student;
 use Project\Doctrine\Helper\EntityManagerFactory;
 
-require_once 'vendor/autoload.php';
-
-$student = new Student();
-$student->setName($argv[1]);
+require_once __DIR__ . '/../vendor/autoload.php';
 
 $entityManagerFactory = new EntityManagerFactory();
 $entityManager = $entityManagerFactory->getEntityManager();
 
-$entityManager->persist($student);
+$id = $argv[1];
+$student = $entityManager->getReference(Student::class, $id);
 
+$entityManager->remove($student);
 $entityManager->flush();
