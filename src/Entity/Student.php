@@ -23,8 +23,8 @@ class Student
     private string $name;
 
     /**
-     * @OneToMany(targetEntity="Phone", mappedBy="Student")
-     */
+     * @OneToMany(targetEntity="Phone", mappedBy="student", cascade={"remove", "persist"})
+    */
     private $phones;
 
     public function __construct()
@@ -56,10 +56,10 @@ class Student
         return $this->phones;
     }
 
-    public function addPhone(Phone $phones)
+    public function addPhone(Phone $phone)
     {
-        $this->phones->add($phones);
-        $phones->setStudent($this);
+        $this->phones->add($phone);
+        $phone->setStudent($this);
         return $this;
     }
 }
