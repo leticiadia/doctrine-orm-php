@@ -63,7 +63,7 @@
 	php commands\report-courses-by-student-repository.php
 ```
 
-<p>Note: The report-courses-by-student.php and report-courses-by-student-dql.php files don't use, as they were created for studies only</p>
+<p><b>Note:</b> The report-courses-by-student.php and report-courses-by-student-dql.php files don't use, as they were created for studies only</p>
 
 ## 👩‍💻 Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
