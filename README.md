@@ -20,7 +20,7 @@
 ## How to use?
 1. In this first part you will clone the repository:
     ```bash
-         https://github.com/leticiadia/doctrine-orm-php.git
+         git clone https://github.com/leticiadia/doctrine-orm-php.git
     ```
 2. Next you will enter the directory:
     ```bash 
